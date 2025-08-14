@@ -24,6 +24,7 @@ The detector head takes the feature map from the encoder and predicts where keyp
 
 ## Data
 The experimental pipeline utilizes the following datasets:
+
 Synthetic Shapes — employed for pretraining the keypoint detector, providing a controlled environment for learning fundamental geometric structures.
 
 EuRoC MAV Dataset — used for evaluating detection performance under realistic conditions relevant to visual-inertial odometry.
