@@ -79,12 +79,13 @@ TODO - Insert some examples of inference using both of the models, compare
 ## Metrics Comparison
 <p align="center">
   <video width="800" controls>
-    <source src="https://raw.githubusercontent.com/mandelyoni/SuperPoint-With-Transformer-Backbone/main/assets/videos/tracks_first200_once.mp4" type="video/mp4">
+    <source src="https://github.com/mandelyoni/SuperPoint-With-Transformer-Backbone/blob/main/assets/videos/tracks_first200_once.mp4?raw=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </p>
 
 # Conclusion
+
 TODO - Insert conclusion of the project
 # Future work
 TODO - Insert future work
