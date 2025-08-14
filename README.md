@@ -1,4 +1,4 @@
-# SuperPoint + Transformer Feature Backbone
+# SuperPoint + Transformer Backbone
 Yoni Mandel and Yehuda Shani 
 - Technion ECE - Deep Learning Project 
 - Spring 2025
