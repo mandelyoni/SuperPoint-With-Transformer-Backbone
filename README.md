@@ -23,17 +23,17 @@ The detector head takes the feature map from the encoder and predicts where keyp
 ## Data
 The experimental pipeline utilizes the following datasets:
 
-Synthetic Shapes — employed for pretraining the keypoint detector, providing a controlled environment for learning fundamental geometric structures.
+- Synthetic Shapes — employed for pretraining the keypoint detector, providing a controlled environment for learning fundamental geometric structures.
 
-EuRoC MAV Dataset — used for evaluating detection performance under realistic conditions relevant to visual-inertial odometry.
+- EuRoC MAV Dataset — used for evaluating detection performance under realistic conditions relevant to visual-inertial odometry.
 
-COCO or other large-scale image datasets — optionally used for fine-tuning to improve generalization to diverse scenes.
+- COCO or other large-scale image datasets — optionally used for fine-tuning to improve generalization to diverse scenes.
 
 Data Preprocessing - all images undergo the following preprocessing steps prior to model training or evaluation:
 
-Resizing and normalization — to standardize image dimensions and pixel intensity ranges across datasets.
+- Resizing and normalization — to standardize image dimensions and pixel intensity ranges across datasets.
 
-Homographic warping — applied as a data augmentation technique to simulate viewpoint changes and geometric transformations, enhancing robustness to real-world variations.
+- Homographic warping — applied as a data augmentation technique to simulate viewpoint changes and geometric transformations, enhancing robustness to real-world variations.
 
 ## Metrics for Evaulation
 - Repeatability (compute_repeatability.py):
