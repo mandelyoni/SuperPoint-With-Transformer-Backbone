@@ -3,7 +3,7 @@ Yoni Mandel and Yehuda Shani
 - Technion ECE - Deep Learning Project 
 - Spring 2025
 
-# Introduction
+# Introduction 
 ## Project Objective 
 This project adapts and extends the MagicPoint and SuperPoint frameworks for keypoint detection. To enhance feature representation and improve robustness under challenging imaging conditions, we integrate a Transformer-based feature extraction backbone into the detection pipeline. As inter-frame point correspondence will be established through optical flow tracking, and due to limited GPU compute resources, the descriptor computation is omitted. The proposed system is evaluated on the EuRoC dataset, a widely used benchmark for Visual Inertial Odometry, using established performance metrics, including repeatability and homography estimation accuracy.
 ## Motivation 
