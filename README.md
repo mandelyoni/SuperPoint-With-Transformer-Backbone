@@ -78,7 +78,8 @@ TODO - Insert some examples of inference using both of the models, compare
 
 ## Metrics Comparison
 <video controls autoplay muted loop playsinline width="640">
-  <source src="https://github.com/mandelyoni/SuperPoint-With-Transformer-Backbone/releases/download/v1.0.0/tracks_first200_once.mp4" type="video/mp4" />
+  <source src="https://mandelyoni.github.io/SuperPoint-With-Transformer-Backbone/tracks_first200_once.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
 # Conclusion
