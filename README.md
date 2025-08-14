@@ -7,40 +7,31 @@ Yoni Mandel and Yehuda Shani
 ## Project Objective 
 This project adapts and extends the MagicPoint and SuperPoint frameworks for keypoint detection. Descriptor computation is omitted, as inter-frame point correspondence is established through optical flow tracking. To enhance feature representation and improve robustness under challenging imaging conditions, we integrate a transformer-based feature extraction backbone into the detection pipeline. The proposed system is evaluated on the EuRoC dataset, a widely used benchmark for Visual Inertial Odometry, using established performance metrics, including repeatability and homography estimation accuracy.
 ## Motivation 
-Feature detection and matching are core components in tasks like SLAM, 3D reconstruction, and image registration.
-While SuperPoint has proven highly effective, we hypothesize that a transformer-based backbone can improve its generalization and performance in scenarios with large appearance changes or geometric distortions.
+Feature detection and matching are fundamental components of numerous computer vision tasks, including simultaneous localization and mapping (SLAM), 3D reconstruction, and image registration. While SuperPoint has demonstrated strong performance across a variety of conditions, we hypothesize that replacing its convolutional backbone with a transformer-based architecture can further improve generalization and robustness, particularly in scenarios involving substantial appearance variations or geometric distortions.
 ## Previous Work 
-MagicPoint: CNN-based interest point detector trained on synthetic data using homography adaptation.
-SuperPoint: Extends MagicPoint with a descriptor head for joint detection and description, trained in a self-supervised manner.
-
-We build on these by:
-Replacing or augmenting the CNN backbone with a transformer-based feature extractor.
-Retaining the dual-head architecture for detection and description.
-Keeping the self-supervised training pipeline with homography adaptation.
+MagicPoint is a convolutional neural network (CNN)-based interest point detector trained entirely on synthetically generated data.
+SuperPoint builds upon MagicPoint through a self-supervised learning strategy, employing homography adaptation to improve detection performance on real-world imagery without requiring manual annotations. 
 
 # Design
 ## Structure
-Our pipeline consists of:
+Encoder – CNN version
+The original SuperPoint encoder is a convolutional network that turns the input grayscale image into a smaller but more detailed feature map. It uses several convolution layers with ReLU activation and pooling, reducing the size by 8× while keeping important structures like corners and edges. This feature map is then used by the detector.
+Encoder – Transformer version
+In our new design, the CNN is replaced with a transformer-based encoder. The image is split into small patches, each turned into an embedding vector with position information. These go through transformer layers that use self-attention to connect features from all over the image, not just nearby pixels. This allows the network to handle big viewpoint changes, distortions, and difficult lighting better than the CNN. The final output is reshaped into a feature map for the detector, just like before.
 
-- Detection Stage: MagicPoint or SuperPoint detector head produces interest point heatmaps.
-- Description Stage: SuperPoint descriptor head extracts descriptors for detected keypoints.
-
-Evaluation Stage:
-
-- Repeatability: Measures consistency of keypoint detection across viewpoint changes.
-- Homography Estimation Correctness: Measures how well descriptors can be matched to estimate geometric transformations.
+Detector head
+The detector head takes the feature map from the encoder and predicts where keypoints are likely to be in the image. It uses a few small convolution layers to produce a heatmap. The original design is kept, where each cell of the heatmap has 65 values — one for each of the 8×8 positions inside the cell, plus one “no keypoint” option. A softmax is applied so the values become probabilities, then the map is reshaped and upsampled back to the original image size. The points with the highest probabilities are selected as the final keypoints.
 
 ## Data
-We use:
+The experimental pipeline utilizes the following datasets:
+Synthetic Shapes — employed for pretraining the keypoint detector, providing a controlled environment for learning fundamental geometric structures.
+EuRoC MAV Dataset — used for evaluating detection performance under realistic conditions relevant to visual-inertial odometry.
+COCO or other large-scale image datasets — optionally used for fine-tuning to improve generalization to diverse scenes.
 
-- Synthetic Shapes for pretraining the detector.
-- HPatches for evaluation of detection and matching.
-- Optionally COCO or other datasets for fine-tuning.
-
-Data preprocessing includes:
-
-- Image resizing and normalization.
-- Homographic warping for augmentation.
+Data Preprocessing
+All images undergo the following preprocessing steps prior to model training or evaluation:
+Resizing and normalization — to standardize image dimensions and pixel intensity ranges across datasets.
+Homographic warping — applied as a data augmentation technique to simulate viewpoint changes and geometric transformations, enhancing robustness to real-world variations.
 
 ## Metrics for Evaulation
 - Repeatability (compute_repeatability.py):
