@@ -36,13 +36,10 @@ Data Preprocessing - all images undergo the following preprocessing steps prior 
 - Homographic warping — applied as a data augmentation technique to simulate viewpoint changes and geometric transformations, enhancing robustness to real-world variations.
 
 ## Metrics for Evaulation
-- Repeatability (compute_repeatability.py):
-
-- Ratio of matching keypoints between two images under known homography.
-
-- Homography Estimation Correctness (compute_desc_eval.py):
-
-- Percentage of matches leading to a correct homography within a pixel threshold.
+1. Repeatability -  Measures how consistently the same keypoints are detected in different views of the same scene.
+2. Localization Error -  Average pixel distance between the projected ground-truth keypoint position and the detected keypoint position
+3. Homography Estimation Accuracy / Correctness - Measures how accurately the detected keypoints can be used to estimate the geometric transformation between image pairs.
+   
 # Results
 ##  Inference on a few Examples
 TODO - Insert some examples of inference using both of the models, compare
