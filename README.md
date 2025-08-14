@@ -76,6 +76,15 @@ Data preprocessing includes:
 ##  Inference on a few Examples
 TODO - Insert some examples of inference using both of the models, compare
 ## Metrics Comparison
+## Metrics Comparison
+
+<p align="center">
+  <video width="800" controls>
+    <source src="assets/videos/tracks_first200_once.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 TODO - Insert tables comparing results of both techniques
 # Conclusion
 TODO - Insert conclusion of the project
