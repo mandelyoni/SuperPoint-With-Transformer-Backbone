@@ -75,6 +75,7 @@ Data preprocessing includes:
 # Results
 ##  Inference on a few Examples
 TODO - Insert some examples of inference using both of the models, compare
+
 ## Metrics Comparison
 <p align="center">
   <video width="800" controls>
@@ -82,6 +83,7 @@ TODO - Insert some examples of inference using both of the models, compare
     Your browser does not support the video tag.
   </video>
 </p>
+
 # Conclusion
 TODO - Insert conclusion of the project
 # Future work
