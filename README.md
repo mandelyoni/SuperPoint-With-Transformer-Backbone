@@ -2,32 +2,10 @@
 Yoni Mandel and Yehuda Shani 
 - Technion ECE - Deep Learning Project 
 - Spring 2025
-# Topics 
-- Introduction
-  - Project Objective
-  - Motivation
-  - Previous Work
-- Design
-  - Structure
-  - Data
-  - Metrics for Evaluation
-- Results
-  - Inference on a few Examples
-  - Metrics Comparisson
-- Conclusion
-- Future work
-- How to run
-  - Training
-  - Running Inference
-  - Export for Evaluation
-- Ethical statement
-- References
 
 # Introduction
 ## Project Objective 
-This project adapts and extends the MagicPoint and SuperPoint frameworks for keypoint detection and description.
-We explore improvements by integrating a transformer-based feature backbone to enhance feature representation and robustness under challenging imaging conditions.
-The system is evaluated using standard metrics such as repeatability and homography estimation correctness on the HPatches dataset.
+This project adapts and extends the MagicPoint and SuperPoint frameworks for keypoint detection. Descriptor computation is omitted, as inter-frame point correspondence is established through optical flow tracking. To enhance feature representation and improve robustness under challenging imaging conditions, we integrate a transformer-based feature extraction backbone into the detection pipeline. The proposed system is evaluated on the EuRoC dataset, a widely used benchmark for Visual Inertial Odometry, using established performance metrics, including repeatability and homography estimation accuracy.
 ## Motivation 
 Feature detection and matching are core components in tasks like SLAM, 3D reconstruction, and image registration.
 While SuperPoint has proven highly effective, we hypothesize that a transformer-based backbone can improve its generalization and performance in scenarios with large appearance changes or geometric distortions.
