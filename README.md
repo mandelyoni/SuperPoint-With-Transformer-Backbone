@@ -16,7 +16,6 @@ SuperPoint builds upon MagicPoint through a self-supervised learning strategy, e
 ## Structure
 Encoder – The original SuperPoint encoder is a convolutional network that turns the input grayscale image into a smaller but more detailed feature map. It uses several convolution layers with ReLU activation and pooling, reducing the size by 8× while keeping important structures like corners and edges. This feature map is then used by the detector.
 
-Transformer version
 In our new design, the CNN is replaced with a transformer-based encoder. The image is split into small patches, each turned into an embedding vector with position information. These go through transformer layers that use self-attention to connect features from all over the image, not just nearby pixels. This allows the network to handle big viewpoint changes, distortions, and difficult lighting better than the CNN. The final output is reshaped into a feature map for the detector, just like before.
 
 Detector head
