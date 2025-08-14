@@ -105,7 +105,7 @@ python train.py inference_check.py # Change file path to correct image!
 ```
 ## Export for Evaluation:
 ```
-python export_detections_repeatability.py
+python export_detections_repeatability.py 
 python export_descriptors.py
 ```
 
