@@ -29,9 +29,10 @@ EuRoC MAV Dataset — used for evaluating detection performance under realistic 
 
 COCO or other large-scale image datasets — optionally used for fine-tuning to improve generalization to diverse scenes.
 
-Data Preprocessing
-All images undergo the following preprocessing steps prior to model training or evaluation:
+Data Preprocessing - all images undergo the following preprocessing steps prior to model training or evaluation:
+
 Resizing and normalization — to standardize image dimensions and pixel intensity ranges across datasets.
+
 Homographic warping — applied as a data augmentation technique to simulate viewpoint changes and geometric transformations, enhancing robustness to real-world variations.
 
 ## Metrics for Evaulation
